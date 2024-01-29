@@ -6,8 +6,7 @@ import Typography from '@mui/material/Typography';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../styles/Themes';
 
-
-const BeautifulForm = () => {
+const FormInput = () => {
     const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (event) => {
@@ -79,4 +78,4 @@ const BeautifulForm = () => {
     );
 };
 
-export default BeautifulForm;
+export default FormInput;

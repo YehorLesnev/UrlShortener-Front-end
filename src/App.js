@@ -1,6 +1,5 @@
 import Header from "./components/Header/Header";
-import URLinput from "./components/Input/URLinput";
-import BeautifulForm from "./components/Input/test";
+import FormInput from "./components/Input/FormInput";
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
         <Header></Header>
       </header>
 
-      <BeautifulForm></BeautifulForm>
+      <FormInput></FormInput>
 
     </div>
   );
