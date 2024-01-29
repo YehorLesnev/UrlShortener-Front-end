@@ -28,9 +28,9 @@ const FormInput = () => {
                     justifyContent="center"
                     alignItems="center"
                     padding={2}
-                    marginTop={10}
+                    marginTop={5}
                 >
-                    <Typography variant="h5" color="black" margin={1}>
+                    <Typography variant="h5" color="black" margin={3}>
                         Shorten your URL
                     </Typography>
 
