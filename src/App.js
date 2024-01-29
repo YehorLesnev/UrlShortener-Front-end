@@ -1,5 +1,6 @@
 import Header from "./components/Header/Header";
 import FormInput from "./components/Input/FormInput";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
 
       <FormInput></FormInput>
 
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
   );
 }
