@@ -15,7 +15,6 @@ const Header = () => {
             <ThemeProvider theme={theme}>
                 <AppBar position="static">
                     <Toolbar>
-                 
                             <Button>
                                 <img src={logo} alt="Logo" style={{
                                     height: '50px',
@@ -25,9 +24,7 @@ const Header = () => {
                         <Typography variant="h3" sx={{ flexGrow: 1 }} className='hover-logo'>
                             Url Shortener
                         </Typography>
-                            </Button>
-
-                       
+                            </Button>                     
                     </Toolbar>
                 </AppBar>
             </ThemeProvider>
