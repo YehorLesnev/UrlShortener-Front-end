@@ -15,76 +15,17 @@
   scroll-behavior: smooth;
 }
 
-a {
-  color: inherit;
-}
 
-.paddings {
-  padding: 1.5rem;
-}
+/* 
 
-.innerWidth {
-  width: 100%;
+@media (min-width:600px): {
+  height: '100px',
+  width: 'auto'
 }
-
-.flexCenter {
-  display: flex;
-}
-
-.flexCenter {
-  display: flex;
-  row-gap: 2rem;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.flexStart {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.flexEnd {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.flexColCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.flexColStart {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-.flexColEnd {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.primaryText {
-  color: --black;
-  font-weight: bold;
-  font-size: 2rem;
-}
-
-.secondaryText {
-  color: --grey;
-  font-size: 0.9rem;
-}
-
-.orangeText {
-  color: orange;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
+[theme.breakpoints.up('md')]: {
+  height: '50px',
+  width: 'auto'
+} */
 
 /* media queries */
 @media (min-width: 1536px) {
