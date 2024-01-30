@@ -8,6 +8,7 @@ import { theme } from '../../styles/Themes';
 import { apiConnectionHost, apiConnectionPort } from '../../appSettings';
 import { enqueueSnackbar, closeSnackbar } from 'notistack';
 import { isValidUrl } from './UrlValidator';
+import CopyToClipboardButton from './CopyToClipboardButton';
 
 const FormInput = () => {
     const [inputValue, setInputValue] = useState(' ');
@@ -111,6 +112,7 @@ const FormInput = () => {
                         margin="normal"
                         value={outputValue}
                         InputProps={{
+                            endAdornment: <CopyToClipboardButton input={outputValue}/>,
                             readOnly: true,
                             style: {
                                 color: '#393c47',
