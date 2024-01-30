@@ -7,6 +7,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../styles/Themes';
 import { apiConnectionHost, apiConnectionPort } from '../../appSettings';
 import { enqueueSnackbar, closeSnackbar } from 'notistack';
+import { isValidUrl } from './UrlValidator';
 
 const FormInput = () => {
     const [inputValue, setInputValue] = useState(' ');
@@ -18,6 +19,21 @@ const FormInput = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if(false === isValidUrl(inputValue)){
+            enqueueSnackbar("Specified URL is invalid or not http/https protocol", {
+                variant: "error",
+                autoHideDuration: 5000,
+                anchorOrigin: { vertical: "bottom", horizontal: "right" },
+                action: (key) => (
+                    <Button color="inherit" size="small" onClick={() => closeSnackbar(key)}>
+                        X
+                    </Button>
+                ),
+            });
+
+            return;
+        }
 
         let response = await fetch(`https://${apiConnectionHost}:${apiConnectionPort}/api/shorten`, {
             method: 'POST',
@@ -33,6 +49,8 @@ const FormInput = () => {
         })
 
         let responseText = await response.json();
+
+
         let snackbarVariant = "success";
 
         if (200 === response.status) {
