@@ -5,18 +5,56 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../styles/Themes';
+import { apiConnectionHost, apiConnectionPort } from '../../appSettings';
 
 const FormInput = () => {
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState(' ');
+    const [outputValue, setOutputValue] = useState('');
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Add your form submission logic here
-        console.log('Submitted value:', inputValue);
+
+        let response = await fetch(`https://${apiConnectionHost}:${apiConnectionPort}/api/shorten`, {
+            method: 'POST',
+            body: JSON.stringify({
+                url: inputValue
+            }),
+            headers: {
+                'accept': '*/*',
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            mode: 'cors',
+            cache: 'no-store'
+        })
+
+        if(200 === response.status){
+                 let responseText = await response.json();
+                    setOutputValue(responseText);
+                }
+    
+                if(400 === response.status){
+                    let responseText = await response.json();
+                    window.alert(responseText);
+                }
+
+        // .then(response => {
+        //     if(200 === response.status){
+        //         let responseText = response.text();
+        //         setOutputValue(responseText);
+        //         console.log(responseText)
+        //     }
+
+        //     if(400 === response.status){
+        //         let responseText = response.json();
+        //         console.log(responseText)
+        //         window.alert(responseText);
+        //     }
+        // })
+        // .catch(error => window.alert(error));
     };
 
     return (
@@ -55,7 +93,7 @@ const FormInput = () => {
                         helperText="Short URL"
                         variant="filled"
                         margin="normal"
-                        value={inputValue}
+                        value={outputValue}
                         InputProps={{
                             readOnly: true,
                             style: {
