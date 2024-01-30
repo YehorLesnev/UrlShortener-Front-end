@@ -102,6 +102,7 @@ const FormInput = () => {
                                 color: '#393c47',
                             },
                         }}
+                        sx={{width: 350}}
                     />
 
                     <TextField
@@ -120,6 +121,7 @@ const FormInput = () => {
                                 color: '#393c47',
                             },
                         }}
+                        sx={{width: 350}}
                     />
 
                     <Button type="submit" variant="contained" color="primary">
