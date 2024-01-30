@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../styles/Themes';
 import { apiConnectionHost, apiConnectionPort } from '../../appSettings';
+import { enqueueSnackbar, closeSnackbar } from 'notistack';
 
 const FormInput = () => {
     const [inputValue, setInputValue] = useState(' ');
@@ -31,30 +32,26 @@ const FormInput = () => {
             cache: 'no-store'
         })
 
-        if(200 === response.status){
-                 let responseText = await response.json();
-                    setOutputValue(responseText);
-                }
-    
-                if(400 === response.status){
-                    let responseText = await response.json();
-                    window.alert(responseText);
-                }
+        let responseText = await response.json();
+        let snackbarVariant = "success";
 
-        // .then(response => {
-        //     if(200 === response.status){
-        //         let responseText = response.text();
-        //         setOutputValue(responseText);
-        //         console.log(responseText)
-        //     }
+        if (200 === response.status) {
+            setOutputValue(responseText);
+            responseText = "Url shortened successfully"
+        } else {
+            snackbarVariant = "error";
+        }
 
-        //     if(400 === response.status){
-        //         let responseText = response.json();
-        //         console.log(responseText)
-        //         window.alert(responseText);
-        //     }
-        // })
-        // .catch(error => window.alert(error));
+        enqueueSnackbar(responseText, {
+            variant: snackbarVariant,
+            autoHideDuration: 5000,
+            anchorOrigin: { vertical: "bottom", horizontal: "right" },
+            action: (key) => (
+                <Button color="inherit" size="small" onClick={() => closeSnackbar(key)}>
+                    X
+                </Button>
+            ),
+        });
     };
 
     return (
