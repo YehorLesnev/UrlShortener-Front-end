@@ -3,13 +3,14 @@ import { Typography } from "@mui/material";
 import TextField from '@mui/material/TextField';
 
 function InputTextField({
+    title,
     inputValue,
     handleInputChange
 }) {
     return (
         <>
             <Typography variant="h5" color="black" margin={3}>
-                Shorten your URL
+                {title}
             </Typography>
 
             <TextField
