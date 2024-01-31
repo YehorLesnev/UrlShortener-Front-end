@@ -11,15 +11,14 @@ const Footer = () => {
     return (
         <ThemeProvider theme={theme}>
             <Box
-                bgcolor="primary.main" // Change the background color as needed
-                // color="white" // Change the text color as needed
-                padding={2}
+                bgcolor="primary.main"
+                padding={1}
                 textAlign="center"
                 position="fixed"
                 bottom="0"
                 width="100%"
             >
-                <Typography variant="body1">
+                <Typography variant="body1" style={{fontSize: "14px"}}>
                     Designed and developed by Yehor Lesnevych.
                 </Typography>
 
@@ -33,7 +32,7 @@ const Footer = () => {
                     </IconButton>
                 </Box>
 
-                <Typography variant="body3">
+                <Typography variant="body3" style={{fontSize: "10px"}}>
                     &copy; 2024 Url Shortener. All rights reserved.
                 </Typography>
 
