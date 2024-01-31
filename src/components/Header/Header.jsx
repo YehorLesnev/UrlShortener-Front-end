@@ -8,23 +8,26 @@ import { ThemeProvider } from '@mui/material/styles';
 import logo from "../../utils/logo.png";
 import './Header.css'
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-const Header = () => {
+function Header() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <ThemeProvider theme={theme}>
                 <AppBar position="static">
                     <Toolbar>
+                        <Link to="/">
                             <Button>
                                 <img src={logo} alt="Logo" style={{
                                     height: '50px',
                                     width: 'auto',
                                     margin: '5px'
                                 }} />
-                        <Typography variant="h3" sx={{ flexGrow: 1 }} className='hover-logo'>
-                            Url Shortener
-                        </Typography>
-                            </Button>                     
+                                <Typography variant="h3" sx={{ flexGrow: 1 }} className='hover-logo'>
+                                    Url Shortener
+                                </Typography>
+                            </Button>
+                        </Link>
                     </Toolbar>
                 </AppBar>
             </ThemeProvider>

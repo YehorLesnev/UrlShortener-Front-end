@@ -1,26 +1,15 @@
-import Header from "./components/Header/Header";
-import FormInput from "./components/Input/FormInput";
-import Footer from "./components/Footer/Footer";
-import { SnackbarProvider } from "notistack";
-import QRCodePageLink from "./components/QRCode-link/QRCodePageLink.";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UrlShorteningPage from "./pages/UrlShorteningPage/UrlShorteningPage.jsx";
+import QrCodeGeneratorPage from "./pages/QrCodeGeneratorPage/QrCodeGeneratorPage.jsx";
 
 function App() {
   return (
-    <SnackbarProvider maxSnack={7}>
-    <div className="App">
-      <header className="App-header">
-        <Header></Header>
-      </header>
-
-      <FormInput></FormInput>
-
-<QRCodePageLink></QRCodePageLink>
-
-      <footer>
-        <Footer></Footer>
-      </footer>
-    </div>
-    </SnackbarProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<UrlShorteningPage />} />
+        <Route path="/qr" element={<QrCodeGeneratorPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
