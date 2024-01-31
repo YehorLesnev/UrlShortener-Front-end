@@ -2,6 +2,7 @@ import Header from "./components/Header/Header";
 import FormInput from "./components/Input/FormInput";
 import Footer from "./components/Footer/Footer";
 import { SnackbarProvider } from "notistack";
+import QRCodePageLink from "./components/QRCode-link/QRCodePageLink.";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       </header>
 
       <FormInput></FormInput>
+
+<QRCodePageLink></QRCodePageLink>
 
       <footer>
         <Footer></Footer>
