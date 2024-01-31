@@ -13,7 +13,7 @@ function InputTextField({
             </Typography>
 
             <TextField
-                label="Enter URL"
+                label="Enter or drop URL"
                 variant="outlined"
                 value={inputValue}
                 onChange={handleInputChange}
