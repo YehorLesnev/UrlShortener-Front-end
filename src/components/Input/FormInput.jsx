@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../styles/Themes';
 import { apiConnectionHost, apiConnectionPort } from '../../appSettings';
 import { enqueueSnackbar, closeSnackbar } from 'notistack';
 import { isValidUrl } from './UrlValidator';
+import InputTextField from './InputTextField';
 import ShortLinkOutput from '../Output/ShortLinkOutput';
+import { Box } from '@mui/system';
 
 const FormInput = () => {
     const [inputValue, setInputValue] = useState('');
@@ -21,7 +20,7 @@ const FormInput = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if(false === isValidUrl(inputValue)){
+        if (false === isValidUrl(inputValue)) {
             enqueueSnackbar("Specified URL is invalid or not http/https protocol", {
                 variant: "error",
                 autoHideDuration: 5000,
@@ -83,52 +82,12 @@ const FormInput = () => {
                     padding={2}
                     marginTop={5}
                 >
-                    <Typography variant="h5" color="black" margin={3}>
-                        Shorten your URL
-                    </Typography>
-
-                    <TextField
-                        label="Enter URL"
-                        variant="outlined"
-                        value={inputValue}
-                        onChange={handleInputChange}
-                        InputProps={{
-                            style: {
-                                color: '#393c47',
-                            },
-                        }}
-                        InputLabelProps={{
-                            style: {
-                                color: '#393c47',
-                            },
-                        }}
-                        sx={{width: 350}}
-                    />
-
-                    <ShortLinkOutput outputValue={outputValue}/>
-                    {/* <TextField
-                        helperText="Short URL"
-                        variant="filled"
-                        margin="normal"
-                        value={outputValue}
-                        InputProps={{
-                            endAdornment: <CopyToClipboardButton input={outputValue}/>,
-                            readOnly: true,
-                            style: {
-                                color: '#393c47',
-                            },
-                        }}
-                        InputLabelProps={{
-                            style: {
-                                color: '#393c47',
-                            },
-                        }}
-                        sx={{width: 350}}
-                    />
+                    <InputTextField inputValue={inputValue} handleInputChange={handleInputChange} />
+                    <ShortLinkOutput outputValue={outputValue} />
 
                     <Button type="submit" variant="contained" color="primary">
                         Submit
-                    </Button> */}
+                    </Button>
                 </Box>
             </ThemeProvider>
         </form>

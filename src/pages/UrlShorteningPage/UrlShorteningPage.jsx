@@ -1,3 +1,4 @@
+import React from 'react';
 import { SnackbarProvider } from "notistack";
 import Header from "../../components/Header/Header";
 import FormInput from "../../components/Input/FormInput";
@@ -9,8 +10,8 @@ function UrlShorteningPage() {
         <>
             <SnackbarProvider maxSnack={7}>
                 <Header />
-                <FormInput />
-                <QRCodePageLink />
+                    <FormInput />
+                    <QRCodePageLink />
                 <Footer />
             </SnackbarProvider>
         </>
