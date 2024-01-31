@@ -8,10 +8,10 @@ import { theme } from '../../styles/Themes';
 import { apiConnectionHost, apiConnectionPort } from '../../appSettings';
 import { enqueueSnackbar, closeSnackbar } from 'notistack';
 import { isValidUrl } from './UrlValidator';
-import CopyToClipboardButton from './CopyToClipboardButton';
+import ShortLinkOutput from '../Output/ShortLinkOutput';
 
 const FormInput = () => {
-    const [inputValue, setInputValue] = useState(' ');
+    const [inputValue, setInputValue] = useState('');
     const [outputValue, setOutputValue] = useState('');
 
     const handleInputChange = (event) => {
@@ -50,7 +50,6 @@ const FormInput = () => {
         })
 
         let responseText = await response.json();
-
 
         let snackbarVariant = "success";
 
@@ -106,7 +105,8 @@ const FormInput = () => {
                         sx={{width: 350}}
                     />
 
-                    <TextField
+                    <ShortLinkOutput outputValue={outputValue}/>
+                    {/* <TextField
                         helperText="Short URL"
                         variant="filled"
                         margin="normal"
@@ -128,7 +128,7 @@ const FormInput = () => {
 
                     <Button type="submit" variant="contained" color="primary">
                         Submit
-                    </Button>
+                    </Button> */}
                 </Box>
             </ThemeProvider>
         </form>

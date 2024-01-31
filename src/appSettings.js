@@ -1,5 +1,5 @@
-const apiConnectionHost = "localhost"//"192.168.56.1";
-const apiConnectionPort = "5050";
+const apiConnectionHost = "localhost"
+const apiConnectionPort = "5001";
 
 export {apiConnectionHost, apiConnectionPort};
 

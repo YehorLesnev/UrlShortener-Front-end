@@ -9,7 +9,6 @@ function UrlShorteningPage() {
         <>
             <SnackbarProvider maxSnack={7}>
                 <Header />
-         
                 
                 <Footer />
             </SnackbarProvider>
