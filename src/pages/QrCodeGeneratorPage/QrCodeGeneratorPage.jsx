@@ -4,6 +4,7 @@ import Footer from "../../components/Footer/Footer";
 import InputTextField from "../../components/Input/InputTextField";
 import { Box } from "@mui/system";
 import QrCodeImage from "../../components/Output/QrCodeImage";
+import QrCodeFormInput from "../../components/Input/QrCodeFormInput";
 
 function UrlShorteningPage() {
     return (
@@ -18,8 +19,8 @@ function UrlShorteningPage() {
                     padding={2}
                     marginTop={5}
                 >
-                    <InputTextField title="Generate QR code" />
-                    <QrCodeImage/>
+
+                    <QrCodeFormInput />
                 </Box>
                 <Footer />
             </SnackbarProvider>
