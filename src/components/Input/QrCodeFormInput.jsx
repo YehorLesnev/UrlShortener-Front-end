@@ -4,10 +4,11 @@ import InputTextField from "./InputTextField";
 import { isValidInput } from "./QrCodeInputValidator";
 import { enqueueSnackbar, closeSnackbar } from "notistack";
 import { Button } from "@mui/material";
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from '../../styles/Themes';
 
 const QrCodeFormInput = () => {
     const [inputValue, setInputValue] = useState('');
-    const [outputValue, setOutputValue] = useState('');
 
     const handleInputChange = (event) => {
         if (false === isValidInput(event.target.value)) {
@@ -29,11 +30,11 @@ const QrCodeFormInput = () => {
     };
 
     return (
-        <>
+        <ThemeProvider theme={theme}>
             <InputTextField title="Generate QR code" inputValue={inputValue} handleInputChange={handleInputChange} />
 
             <QrCodeImage value={inputValue} />
-        </>
+        </ThemeProvider>
     );
 }
 

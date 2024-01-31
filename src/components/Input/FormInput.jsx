@@ -49,7 +49,6 @@ const FormInput = () => {
         })
 
         let responseText = await response.json();
-
         let snackbarVariant = "success";
 
         if (200 === response.status) {
