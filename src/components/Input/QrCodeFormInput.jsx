@@ -9,6 +9,7 @@ import { theme } from '../../styles/Themes';
 import QrColorSelector from "./QrColorSelector";
 import { Box } from '@mui/system';
 import DownloadButton from "../DownloadButton/DownloadButton";
+import { msgErrorTooLongText } from "../../Settings/Messages";
 
 const QrCodeFormInput = () => {
     const [inputValue, setInputValue] = useState('');
@@ -17,7 +18,7 @@ const QrCodeFormInput = () => {
 
     const handleInputChange = (event) => {
         if (false === isValidInput(event.target.value)) {
-            enqueueSnackbar("Specified text is too long (Max length is 2331)", {
+            enqueueSnackbar(msgErrorTooLongText, {
                 variant: "error",
                 autoHideDuration: 5000,
                 anchorOrigin: { vertical: "bottom", horizontal: "right" },

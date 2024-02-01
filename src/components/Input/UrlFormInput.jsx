@@ -4,16 +4,32 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../styles/Themes';
 import { apiConnectionHost, apiConnectionPort } from '../../Settings/appSettings';
 import { enqueueSnackbar, closeSnackbar } from 'notistack';
-import { isValidUrl } from './InputValidator';
+import { isValidUrl, isValidInput } from './InputValidator';
 import InputTextField from './InputTextField';
 import ShortLinkOutput from '../Output/ShortLinkOutput';
 import { Box } from '@mui/system';
+import { msgErrorInvalidUrl, msgErrorTooLongText, msgSuccessUrlShorten } from '../../Settings/Messages';
 
 const FormInput = () => {
     const [inputValue, setInputValue] = useState('');
     const [outputValue, setOutputValue] = useState('');
 
     const handleInputChange = (event) => {
+        if (false === isValidInput(event.target.value)) {
+            enqueueSnackbar(msgErrorTooLongText, {
+                variant: "error",
+                autoHideDuration: 5000,
+                anchorOrigin: { vertical: "bottom", horizontal: "right" },
+                action: (key) => (
+                    <Button color="inherit" size="small" onClick={() => closeSnackbar(key)}>
+                        X
+                    </Button>
+                ),
+            });
+
+            return;
+        }
+
         setInputValue(event.target.value);
     };
 
@@ -21,7 +37,7 @@ const FormInput = () => {
         event.preventDefault();
 
         if (false === isValidUrl(inputValue)) {
-            enqueueSnackbar("Specified URL is invalid or not http/https protocol", {
+            enqueueSnackbar(msgErrorInvalidUrl, {
                 variant: "error",
                 autoHideDuration: 5000,
                 anchorOrigin: { vertical: "bottom", horizontal: "right" },
@@ -53,7 +69,7 @@ const FormInput = () => {
 
         if (200 === response.status) {
             setOutputValue(responseText);
-            responseText = "Url shortened successfully"
+            responseText = msgSuccessUrlShorten
         } else {
             snackbarVariant = "error";
         }
