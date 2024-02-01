@@ -7,14 +7,15 @@ import logo from "../../utils/logo.png";
 import './Header.css'
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import ThemeSwitch from '../DarkModeSwitch/ThemeSwitch.jsx';
 
 function Header() {
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box >
             <AppBar position="static">
                 <Toolbar>
                     <Link to="/">
-                        <Button>
+                        <Button >
                             <img src={logo} alt="Logo" style={{
                                 height: '50px',
                                 width: 'auto',
@@ -22,15 +23,13 @@ function Header() {
                             }} />
                             <Typography
                                 variant="h3"
-                                sx={{
-                                    flexGrow: 1,
-                                }}
                                 className='hover-logo'
                             >
                                 Url Shortener
                             </Typography>
                         </Button>
                     </Link>
+                    <ThemeSwitch />
                 </Toolbar>
             </AppBar>
         </Box>
