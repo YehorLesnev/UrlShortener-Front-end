@@ -9,7 +9,7 @@ function InputTextField({
 }) {
     return (
         <>
-            <Typography variant="h5" color="black" margin={3}>
+            <Typography variant="h5" color="text.secondary" margin={3}>
                 {title}
             </Typography>
 

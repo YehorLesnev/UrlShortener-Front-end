@@ -26,7 +26,7 @@ const getTheme = (isDark) => {
         },
 
         logo: {
-          main: '#e5322d'
+          main: '#ffffff',
         }
       },
     });

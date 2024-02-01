@@ -20,7 +20,13 @@ function Header() {
                                 width: 'auto',
                                 margin: '5px',
                             }} />
-                            <Typography variant="h3" sx={{ flexGrow: 1 }} className='hover-logo'>
+                            <Typography
+                                variant="h3"
+                                sx={{
+                                    flexGrow: 1,
+                                }}
+                                className='hover-logo'
+                            >
                                 Url Shortener
                             </Typography>
                         </Button>

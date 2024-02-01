@@ -7,7 +7,7 @@ import { CssBaseline } from "@mui/material";
 
 function App() {
   return (
-    <ThemeProvider theme={getTheme(true)}>
+    <ThemeProvider theme={getTheme(false)}>
       <CssBaseline/>
     <BrowserRouter>
       <Routes>
