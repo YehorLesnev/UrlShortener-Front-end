@@ -6,9 +6,14 @@ import { enqueueSnackbar, closeSnackbar } from "notistack";
 import { Button } from "@mui/material";
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../styles/Themes';
+import QrColorSelector from "./QrColorSelector";
+import { Box } from '@mui/system';
+import DownloadButton from "../DownloadButton/DownloadButton";
 
 const QrCodeFormInput = () => {
     const [inputValue, setInputValue] = useState('');
+    const [bgColor, setBgColor] = useState('#ffffff');
+    const [fgColor, setFgColor] = useState('#000000');
 
     const handleInputChange = (event) => {
         if (false === isValidInput(event.target.value)) {
@@ -33,7 +38,21 @@ const QrCodeFormInput = () => {
         <ThemeProvider theme={theme}>
             <InputTextField title="Generate QR code" inputValue={inputValue} handleInputChange={handleInputChange} />
 
-            <QrCodeImage value={inputValue} />
+            <Box display="flex" flexDirection="row" alignItems="center">
+                <QrCodeImage
+                    value={inputValue}
+                    bgColor={bgColor}
+                    fgColor={fgColor}
+                />
+
+                <QrColorSelector
+                    bgColor={bgColor}
+                    fgColor={fgColor}
+                    setBgColor={setBgColor}
+                    setFgColor={setFgColor}
+                />
+            </Box>
+            <DownloadButton />
         </ThemeProvider>
     );
 }
