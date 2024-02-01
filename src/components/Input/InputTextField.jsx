@@ -19,16 +19,30 @@ function InputTextField({
                 value={inputValue}
                 onChange={handleInputChange}
                 InputProps={{
-                    style: {
-                        color: '#393c47',
+                    sx: {
+                        color: 'text.primary',
                     },
                 }}
                 InputLabelProps={{
-                    style: {
-                        color: '#393c47',
+                    sx: {
+                        color: 'text.secondary',
                     },
                 }}
-                sx={{ width: 350 }}
+                sx={{ 
+                    width: 350,
+                    color: 'text.primary',
+                    "& label.Mui-focused": {
+                        color: "text.secondary",
+                      },
+                      "& .MuiOutlinedInput-root": {
+                        fieldset: {
+                            borderColor: "text.primary",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "text.secondary",
+                        },
+                    } 
+                }}
             />
         </>
     );

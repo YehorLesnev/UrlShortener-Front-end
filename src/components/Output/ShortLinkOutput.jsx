@@ -13,15 +13,27 @@ const ShortLinkOutput = (outputValue) => {
                 endAdornment: <CopyToClipboardButton input={outputValue.outputValue} />,
                 readOnly: true,
                 style: {
-                    color: '#393c47',
+                    color: 'black',
                 },
             }}
             InputLabelProps={{
                 style: {
-                    color: '#393c47',
+                    color: 'text.secondary',
                 },
             }}
-            sx={{ width: 350 }}
+            sx={{
+                width: 350,
+                color: 'text.secondary',
+                "& .MuiFilledInput-underline:after": {
+                    borderBottomColor: "red",
+                },
+                "& .MuiFilledInput-root": {
+                    backgroundColor: "text.dark",
+                },
+                "& .MuiFilledInput-root:hover": {
+                    backgroundColor: "text.dark",
+                },
+            }}
         />
 
     );

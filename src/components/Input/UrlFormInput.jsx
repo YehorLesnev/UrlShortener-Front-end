@@ -101,14 +101,18 @@ const FormInput = () => {
                 padding={2}
                 marginTop={3}
             >
-                <InputTextField title="Shorten your URL" inputValue={inputValue} handleInputChange={handleInputChange} />
+                <InputTextField 
+                title="Shorten your URL" 
+                inputValue={inputValue} 
+                handleInputChange={handleInputChange}
+                />
                 <ShortLinkOutput outputValue={outputValue} />
 
                 <Box sx={{ m: 1, position: "relative" }}>
                     <Button
                         type="submit"
                         variant="contained"
-                        color="primary"
+                        color="btnSubmit"
                         disabled={isLoading}
                     >
                         Submit

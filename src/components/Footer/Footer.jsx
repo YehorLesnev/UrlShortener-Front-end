@@ -21,10 +21,33 @@ const Footer = () => {
 
             <Box marginTop={1}>
                 {/* Social media links */}
-                <IconButton href="https://github.com/YehorLesnev" target="_blank" rel="noopener noreferrer">
+                <IconButton 
+                sx={{
+                    color: 'text.primary',
+                    '&:hover': {
+                        backgroundColor: 'background.default',
+                        color: 'primary.contrastText',
+                    },
+                }} 
+                href="https://github.com/YehorLesnev" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                >
                     <GitHubIcon />
                 </IconButton>
-                <IconButton href="https://www.linkedin.com/in/yehor-lesnevych-130640158/" target="_blank" rel="noopener noreferrer">
+                
+                <IconButton 
+                sx={{
+                    color: 'text.primary', 
+                '&:hover': {
+                    backgroundColor: 'background.default',
+                    color: 'primary.contrastText',
+                },
+            }} 
+                href="https://www.linkedin.com/in/yehor-lesnevych-130640158/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                >
                     <LinkedInIcon />
                 </IconButton>
             </Box>
