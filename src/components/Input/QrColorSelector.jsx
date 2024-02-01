@@ -11,7 +11,7 @@ const QrColorSelector = ({
 }) => {
   return (
     <>
-      <Box display="flex" flexDirection="column" alignItems="center">
+      <Box display="flex" flexDirection="column" alignItems="center" marginLeft={3}>
         <Typography sx={{ fontSize: "14", margin: 1 }}>Background Color</Typography>
         <MuiColorInput
           sx={{ width: "100%" }}
