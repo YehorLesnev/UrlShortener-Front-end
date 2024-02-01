@@ -15,10 +15,11 @@ function UrlShorteningPage() {
                     justifyContent="center"
                     alignItems="center"
                     padding={2}
-                    marginTop={5}
+                    marginTop={3}
                 >
 
                     <QrCodeFormInput />
+
                 </Box>
                 <Footer />
             </SnackbarProvider>

@@ -79,7 +79,7 @@ const FormInput = () => {
                     justifyContent="center"
                     alignItems="center"
                     padding={2}
-                    marginTop={5}
+                    marginTop={3}
                 >
                     <InputTextField title="Shorten your URL" inputValue={inputValue} handleInputChange={handleInputChange} />
                     <ShortLinkOutput outputValue={outputValue} />
