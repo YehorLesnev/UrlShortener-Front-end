@@ -4,8 +4,6 @@ import InputTextField from "./InputTextField";
 import { isValidInput } from "./InputValidator";
 import { enqueueSnackbar, closeSnackbar } from "notistack";
 import { Button } from "@mui/material";
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from '../../styles/Themes';
 import QrColorSelector from "./QrColorSelector";
 import { Box } from '@mui/system';
 import DownloadButton from "../DownloadButton/DownloadButton";
@@ -36,7 +34,7 @@ const QrCodeFormInput = () => {
     };
 
     return (
-        <ThemeProvider theme={theme}>
+        <>
             <InputTextField title="Generate QR code" inputValue={inputValue} handleInputChange={handleInputChange} />
 
             <Box display="flex" flexDirection="row" alignItems="center">
@@ -54,7 +52,7 @@ const QrCodeFormInput = () => {
                 />
             </Box>
             <DownloadButton />
-        </ThemeProvider>
+        </>
     );
 }
 

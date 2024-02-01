@@ -4,16 +4,20 @@ import Header from "../../components/Header/Header";
 import UrlFormInput from "../../components/Input/UrlFormInput";
 import QRCodePageLink from "../../components/QRCode-link/QRCodePageLink.";
 import Footer from "../../components/Footer/Footer";
+import { ThemeProvider } from '@emotion/react';
+import { theme } from '../../styles/Themes';
 
 function UrlShorteningPage() {
     return (
         <>
-            <SnackbarProvider maxSnack={7}>
-                <Header />
+            <ThemeProvider theme={theme}>
+                <SnackbarProvider maxSnack={7}>
+                    <Header />
                     <UrlFormInput />
                     <QRCodePageLink />
-                <Footer />
-            </SnackbarProvider>
+                    <Footer />
+                </SnackbarProvider>
+            </ThemeProvider>
         </>
     );
 }

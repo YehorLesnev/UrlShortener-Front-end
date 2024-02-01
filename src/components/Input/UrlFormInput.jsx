@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from '../../styles/Themes';
 import { apiConnectionHost, apiConnectionPort } from '../../Settings/appSettings';
 import { enqueueSnackbar, closeSnackbar } from 'notistack';
 import { isValidUrl, isValidInput } from './InputValidator';
@@ -95,44 +93,42 @@ const FormInput = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <ThemeProvider theme={theme}>
-                <Box
-                    display="flex"
-                    flexDirection="column"
-                    justifyContent="center"
-                    alignItems="center"
-                    padding={2}
-                    marginTop={3}
-                >
-                    <InputTextField title="Shorten your URL" inputValue={inputValue} handleInputChange={handleInputChange} />
-                    <ShortLinkOutput outputValue={outputValue} />
+            <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                padding={2}
+                marginTop={3}
+            >
+                <InputTextField title="Shorten your URL" inputValue={inputValue} handleInputChange={handleInputChange} />
+                <ShortLinkOutput outputValue={outputValue} />
 
-                    <Box sx={{ m: 1, position: "relative" }}>
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            color="primary"
-                            disabled={isLoading}
-                        >
-                            Submit
-                        </Button>
+                <Box sx={{ m: 1, position: "relative" }}>
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        disabled={isLoading}
+                    >
+                        Submit
+                    </Button>
 
-                        {/* Loader */}
-                        {isLoading && (
-                            <CircularProgress
-                                size={25}
-                                sx={{
-                                    color: "#e5322d",
-                                    position: "absolute",
-                                    top: 5,
-                                    left: 30,
-                                    zIndex: 1,
-                                }}
-                            />
-                        )}
-                    </Box>
+                    {/* Loader */}
+                    {isLoading && (
+                        <CircularProgress
+                            size={25}
+                            sx={{
+                                color: "#e5322d",
+                                position: "absolute",
+                                top: 5,
+                                left: 30,
+                                zIndex: 1,
+                            }}
+                        />
+                    )}
                 </Box>
-            </ThemeProvider>
+            </Box>
         </form>
     );
 };
