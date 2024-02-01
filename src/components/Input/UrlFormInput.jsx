@@ -9,10 +9,11 @@ import InputTextField from './InputTextField';
 import ShortLinkOutput from '../Output/ShortLinkOutput';
 import { Box } from '@mui/system';
 import { msgErrorInvalidUrl, msgErrorTooLongText, msgSuccessUrlShorten } from '../../Settings/Messages';
-
+import { CircularProgress } from '@mui/material';
 const FormInput = () => {
     const [inputValue, setInputValue] = useState('');
     const [outputValue, setOutputValue] = useState('');
+    const [isLoading, setLoading] = useState(false);
 
     const handleInputChange = (event) => {
         if (false === isValidInput(event.target.value)) {
@@ -51,20 +52,26 @@ const FormInput = () => {
             return;
         }
 
-        let response = await fetch(`https://${apiConnectionHost}:${apiConnectionPort}/api/shorten`, {
-            method: 'POST',
-            body: JSON.stringify({
-                url: inputValue
-            }),
-            headers: {
-                'accept': '*/*',
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-            mode: 'cors',
-            cache: 'no-store'
-        })
+        let response, responseText;
+        setLoading(true);
+        if (false === isLoading) {
+            response = await fetch(`https://${apiConnectionHost}:${apiConnectionPort}/api/shorten`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    url: inputValue
+                }),
+                headers: {
+                    'accept': '*/*',
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+                mode: 'cors',
+                cache: 'no-store'
+            })
 
-        let responseText = await response.json();
+            responseText = await response.json();
+            setLoading(false)
+        }
+
         let snackbarVariant = "success";
 
         if (200 === response.status) {
@@ -100,9 +107,30 @@ const FormInput = () => {
                     <InputTextField title="Shorten your URL" inputValue={inputValue} handleInputChange={handleInputChange} />
                     <ShortLinkOutput outputValue={outputValue} />
 
-                    <Button type="submit" variant="contained" color="primary">
-                        Submit
-                    </Button>
+                    <Box sx={{ m: 1, position: "relative" }}>
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="primary"
+                            disabled={isLoading}
+                        >
+                            Submit
+                        </Button>
+
+                        {/* Loader */}
+                        {isLoading && (
+                            <CircularProgress
+                                size={25}
+                                sx={{
+                                    color: "#e5322d",
+                                    position: "absolute",
+                                    top: 5,
+                                    left: 30,
+                                    zIndex: 1,
+                                }}
+                            />
+                        )}
+                    </Box>
                 </Box>
             </ThemeProvider>
         </form>
