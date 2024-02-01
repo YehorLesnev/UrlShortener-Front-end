@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import QrCodeImage from "../Output/QrCodeImage";
 import InputTextField from "./InputTextField";
-import { isValidInput } from "./QrCodeInputValidator";
+import { isValidInput } from "./InputValidator";
 import { enqueueSnackbar, closeSnackbar } from "notistack";
 import { Button } from "@mui/material";
 import { ThemeProvider } from '@mui/material/styles';
