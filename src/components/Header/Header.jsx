@@ -7,7 +7,6 @@ import logo from "../../utils/logo.png";
 import './Header.css'
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import ThemeSwitch from '../DarkModeSwitch/ThemeSwitch.jsx';
 
 function Header() {
     return (
@@ -29,7 +28,6 @@ function Header() {
                             </Typography>
                         </Button>
                     </Link>
-                    <ThemeSwitch />
                 </Toolbar>
             </AppBar>
         </Box>
