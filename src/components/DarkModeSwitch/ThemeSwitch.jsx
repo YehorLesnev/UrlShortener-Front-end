@@ -24,13 +24,17 @@ const ThemeSwitch = ({
       }
       checkedIcon={<Brightness4Icon sx={{ color: 'text.primary' }} />}
       sx={{
-        marginLeft: "auto",
+        //marginLeft: "auto",
         '& .MuiSwitch-track': {
           backgroundColor: isDarkMode ? '#2E3B4E' : '#cfd8dc',
         },
         '& .MuiSwitch-thumb': {
           backgroundColor: isDarkMode ? '#ffd700' : '#f57c00',
         },
+        position: 'fixed',
+        top: '1rem',
+        right: '1rem',
+        zIndex: 1000,
       }}
     />
   );
