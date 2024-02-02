@@ -1,3 +1,8 @@
+# Website preview
+
+![url_shortener](https://github.com/YehorLesnev/UrlShortener-Front-end/assets/135259671/41d26c6d-2924-4427-b65b-1a27c6e81a54)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
