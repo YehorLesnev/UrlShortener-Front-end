@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Switch from '@mui/material/Switch';
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
@@ -17,8 +16,13 @@ const ThemeSwitch = ({
       color="default"
       checked={isDarkMode}
       onChange={toggleDarkMode}
-      icon={<Brightness7Icon sx={{ color: 'yellow' }} />}
-      checkedIcon={<Brightness4Icon sx={{ color: 'black' }} />}
+      icon={
+        <Brightness7Icon
+          sx={{
+            color: 'yellow',
+          }} />
+      }
+      checkedIcon={<Brightness4Icon sx={{ color: 'text.primary' }} />}
       sx={{
         marginLeft: "auto",
         '& .MuiSwitch-track': {

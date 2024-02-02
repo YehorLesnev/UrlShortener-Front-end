@@ -10,9 +10,10 @@ import ThemeSwitch from "./components/DarkModeSwitch/ThemeSwitch.jsx";
 
 function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const localStorageMode = JSON.parse(localStorage.getItem('isDarkMode'));
 
   // state: boolean ; true == use dark mode
-  const [isDarkMode, setDarkMode] = useState(prefersDarkMode);
+  const [isDarkMode, setDarkMode] = useState(null === localStorageMode ? prefersDarkMode : localStorageMode);
 
   useEffect(() => {
     localStorage.setItem('isDarkMode', JSON.stringify(isDarkMode));
