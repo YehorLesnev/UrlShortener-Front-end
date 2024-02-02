@@ -19,7 +19,7 @@ const ThemeSwitch = ({
       icon={
         <Brightness7Icon
           sx={{
-            color: 'yellow',
+            color: '#FF8C00',
           }} />
       }
       checkedIcon={<Brightness4Icon sx={{ color: 'text.primary' }} />}
